@@ -112,6 +112,14 @@ The submit command signs an entry message with your wallet and sends the reposit
 
 ## 6. Check it, fix it, resubmit
 
+Before you submit, run the kit's local check on your repository and transcripts — it catches the same failures the site would, while you still have time to fix them:
+
+```sh
+node cli/makefun.mjs check --kit . --repo <your repository> --transcripts transcripts.tar.gz
+```
+
+Two failures that surprise first-timers: the LICENSE file must carry an `SPDX-License-Identifier: MIT` line (or the license is refused even though GitHub detects it), and the transcripts must show your agent writing the entry itself in at least two writes or edits — a file copied into the repository from elsewhere does not count, however good it is.
+
 After submitting, check the entry's status:
 
 ```sh
